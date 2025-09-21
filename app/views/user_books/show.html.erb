@@ -1,4 +1,8 @@
+
 <p style="color: green"><%= notice %></p>
+<h1>Youre logged in! Welcome to the Dashboard!</h1>
+
+<%= link_to "Sign Out", destroy_admin_session_path %>
 
 <%= render @user_book %>
 
