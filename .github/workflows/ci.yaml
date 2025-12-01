@@ -19,10 +19,10 @@ jobs:
         ports:
           - 5432:5432
         env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: password
+          POSTGRES_USER: ${{ env.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
         options: >-
-          --health-cmd "pg_isready -U postgres"
+          --health-cmd "pg_isready -U ${{ env.POSTGRES_USER }}"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
@@ -49,7 +49,7 @@ jobs:
           bundle install --jobs 4 --retry 3
 
       - name: Install Yarn dependencies
-        run: yarn install
+        run: yarn install --frozen-lockfile
 
       - name: Setup database
         run: |
@@ -66,21 +66,21 @@ jobs:
         run: bundle exec rubocop --force-exclusion vendor/*/** --out rubocop.txt
 
       - name: Upload coverage results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: coverage-report
           path: coverage
 
       - name: Upload RuboCop report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: rubocop-report
           path: rubocop.txt
 
       - name: Upload Brakeman report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: brakeman-report
