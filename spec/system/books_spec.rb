@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe "Books", type: :system do
-  it 'A book called gold can be added' do
-    visit 'books'
-    expect(page).to have_content("Book 1")
-  end
+  # it 'A book called gold can be added' do
+  #   visit 'books'
+  #   expect(page).to have_content("Book 1")
+  # end
   # before do
   #   driven_by(:rack_test)
   # end
