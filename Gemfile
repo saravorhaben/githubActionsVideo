@@ -54,6 +54,7 @@ gem "bootsnap", require: false
 
 group :development, :test do
   gem 'rspec-rails', '~> 7.1'
+  gem 'brakeman'
 end
 
 
