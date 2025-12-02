@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class Admin < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   # devise :database_authenticatable, :recoverable, :rememberable, :validatable,
-        #  :omniauthable, omniauth_providers: [:google_oauth2]
+  #  :omniauthable, omniauth_providers: [:google_oauth2]
   devise :omniauthable, omniauth_providers: [:google_oauth2]
 
   def self.from_google(email:, full_name:, uid:, avatar_url:)

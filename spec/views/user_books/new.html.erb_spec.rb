@@ -1,19 +1,21 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "user_books/new", type: :view do
+RSpec.describe 'user_books/new', type: :view do
   before(:each) do
     assign(:user_book, UserBook.new(
-      user_id: User.first&.id || User.create!(username: "TestUser").id,
-      book_id: Book.first&.id || Book.create!(title: "TestBook").id
-    ))
+                         user_id: User.first&.id || User.create!(username: 'TestUser').id,
+                         book_id: Book.first&.id || Book.create!(title: 'TestBook').id
+                       ))
   end
 
-  it "renders new user_book form" do
+  it 'renders new user_book form' do
     render
 
-    assert_select "form[action=?][method=?]", user_books_path, "post" do
-      assert_select "select[name=?]", "user_book[user_id]"
-      assert_select "select[name=?]", "user_book[book_id]"
+    assert_select 'form[action=?][method=?]', user_books_path, 'post' do
+      assert_select 'select[name=?]', 'user_book[user_id]'
+      assert_select 'select[name=?]', 'user_book[book_id]'
     end
   end
 end

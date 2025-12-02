@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Books", type: :system do
+RSpec.describe 'Books', type: :system do
   # it 'A book called gold can be added' do
   #   visit 'books'
   #   expect(page).to have_content("Book 1")
@@ -37,7 +39,7 @@ RSpec.describe "Books", type: :system do
   #   #fill_in 'Title', with: 'me'
   #   fill_in 'Author', with: 'me'
   #   fill_in 'Price', with: '7'
-    
+
   #   click_on 'Create Book'
   #   expect(page).to have_content('Book was successfully created.')
   # end
@@ -50,7 +52,6 @@ RSpec.describe "Books", type: :system do
   #   click_on 'Create Book'
   #   expect(page).to have_content('Book was successfully created.')
   # end
-  
 
   #  it 'A new book with price but no author is being added' do
   #   visit 'books/new'
@@ -89,6 +90,4 @@ RSpec.describe "Books", type: :system do
   #   click_on 'Create Book'
   #   expect(page).to have_content('Book was successfully created.')
   # end
-
-  
 end
