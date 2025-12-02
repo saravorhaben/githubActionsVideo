@@ -59,6 +59,7 @@ gem 'bootsnap', require: false
 group :development, :test do
   gem 'brakeman'
   gem 'rspec-rails', '~> 7.1'
+  gem "rubocop", "~> 1.65", require: false
 end
 
 group :test do
